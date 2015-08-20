@@ -1,6 +1,6 @@
 # POSTRESPONSE
 
-This is a simple GetResponse wrapper api
+This is a simple GetResponse api wrapper
 
 ## Maven
 This project is built with [Maven](http://maven.apache.org). Be
