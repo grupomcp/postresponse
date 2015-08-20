@@ -1,10 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<name>postresponse</name>
+	<description>This is a simple GetResponse wrapper api</description>
+	<url>https://github.com/grupomcp/postresponse</url>
+	
 	<groupId>com.mcptecnologia</groupId>
 	<artifactId>postresponse</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>postresponse</name>
+	<version>0.0.1</version>
 	
 	<licenses>
 		<license>
@@ -23,9 +26,8 @@
 	</developers>
 	
 	<scm>
-		https://github.com/grupomcp/postresponse.git
 		<connection>scm:git:git@github.com:grupomcp/postresponse.git</connection>
-		<url>scm:git:git@github.com:grupomcp/postresponse.git</url>
+		<url>git@github.com:grupomcp/postresponse.git</url>
 		<developerConnection>scm:git:git@github.com:grupomcp/postresponse.git</developerConnection>
 	</scm>
 

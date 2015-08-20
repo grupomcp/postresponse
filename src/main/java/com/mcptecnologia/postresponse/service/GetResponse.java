@@ -8,13 +8,14 @@ import org.apache.log4j.Logger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mcptecnologia.postresponse.domain.Contact;
 
-
+@Component
 public class GetResponse {
 	private Logger logger = Logger.getLogger(GetResponse.class);
 	
