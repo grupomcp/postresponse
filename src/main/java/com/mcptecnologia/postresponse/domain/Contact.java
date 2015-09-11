@@ -7,19 +7,19 @@ public class Contact {
 	private String contactId;
 	private String name;
 	private String email;
-	private List<Company>customs;
+	private List<Custom>customFieldValues;
 	private Campaign campaign;
 	
-	public Contact(String contactId, String name, String email, List<Company> customs, Campaign campaign) {
-		this(name, email, customs, campaign);
+	public Contact(String contactId, String name, String email, List<Custom> customFieldValues, Campaign campaign) {
+		this(name, email, customFieldValues, campaign);
 		this.contactId = contactId;
 	}
 	
-	public Contact(String name, String email, List<Company> customs, Campaign campaign) {
+	public Contact(String name, String email, List<Custom> customFieldValues, Campaign campaign) {
 		super();
 		this.name = name;
 		this.email = email;
-		this.customs = customs;
+		this.customFieldValues = customFieldValues;
 		this.campaign = campaign;
 	} 
 	
@@ -35,8 +35,8 @@ public class Contact {
 		return email;
 	}
 	
-	public List<Company> getCustoms() {
-		return customs;
+	public List<Custom> getCustomFieldValues() {
+		return customFieldValues;
 	}
 	
 	public Campaign getCampaign() {
