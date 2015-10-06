@@ -71,7 +71,7 @@ public class GetResponse {
 		}
 	}
 	
-	private List<Contact>findContactWith(String email){
+	public List<Contact>findContactWith(String email){
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("X-Auth-Token", "api-key 9c7e475fff2827d50be1c25df126fd7d");
 		HttpEntity<String> entity = new HttpEntity<String>(headers);
