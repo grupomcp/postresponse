@@ -40,6 +40,23 @@ public class GetResponse {
 		
 	}
 	
+	public void updateContact(Contact contact){
+		List<Object>contatos = new ArrayList<Object>();
+		contatos.add(ResourceBundle.getBundle("config").getString("getresponse.key"));
+		contatos.add(contact);
+		
+		String jsonContato = gson.toJson(contact);
+		logger.debug(jsonContato);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-Auth-Token", "api-key " + ResourceBundle.getBundle("config").getString("getresponse.key"));
+		headers.set("Content-Type", "application/json");
+		HttpEntity<String> entity = new HttpEntity<String>(jsonContato, headers);
+		HttpEntity<String> retornoHttp = template.exchange("http://api.getresponse.com/v3/contacts/" + contact.getContactId(), HttpMethod.POST, entity, String.class);
+		String retorno = retornoHttp.getBody();
+		logger.debug(retorno);
+	}
+	
 	public void moveContactToNewCampaign(String contactMail, String campaignId){
 		List<Contact> contacts = this.findContactWith(contactMail);
 		
