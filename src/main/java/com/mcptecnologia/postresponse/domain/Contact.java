@@ -39,6 +39,10 @@ public class Contact {
 		return customFieldValues;
 	}
 	
+	public void setCustomFieldValues(List<Custom> customFieldValues) {
+		this.customFieldValues = customFieldValues;
+	}
+	
 	public Campaign getCampaign() {
 		return campaign;
 	}
