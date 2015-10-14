@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mcptecnologia.postresponse.common.ResponseErrorHandler;
 import com.mcptecnologia.postresponse.domain.Contact;
 
 @Component
@@ -20,7 +21,12 @@ public class GetResponse {
 	private Logger logger = Logger.getLogger(GetResponse.class);
 	
 	private Gson gson = new Gson();
-	private RestTemplate template = new RestTemplate();
+	private RestTemplate template;
+	
+	public GetResponse(){
+		template = new RestTemplate();
+		template.setErrorHandler(new ResponseErrorHandler());
+	}
 	
 	public void addContact(Contact contact){
 		List<Object>contatos = new ArrayList<Object>();
