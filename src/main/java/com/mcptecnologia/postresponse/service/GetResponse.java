@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -95,14 +96,16 @@ public class GetResponse {
 	}
 	
 	public List<Contact>findContactWith(String email){
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("X-Auth-Token", "api-key 9c7e475fff2827d50be1c25df126fd7d");
-		HttpEntity<String> entity = new HttpEntity<String>(headers);
-		HttpEntity<String> retornoHttp = template.exchange("http://api.getresponse.com/v3/contacts?query[email]=" + email, HttpMethod.GET, entity, String.class);
-		String retorno = retornoHttp.getBody();
-		logger.debug(retorno);
-		List<Contact> contacts = gson.fromJson(retorno, new TypeToken<List<Contact>>(){}.getType());
-		
+		List<Contact> contacts = new ArrayList<Contact>();
+		if(EmailValidator.getInstance().isValid(email)){
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-Auth-Token", "api-key 9c7e475fff2827d50be1c25df126fd7d");
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			HttpEntity<String> retornoHttp = template.exchange("http://api.getresponse.com/v3/contacts?query[email]=" + email, HttpMethod.GET, entity, String.class);
+			String retorno = retornoHttp.getBody();
+			logger.debug(retorno);
+			contacts = gson.fromJson(retorno, new TypeToken<List<Contact>>(){}.getType());
+		}
 		return contacts;
 	}
 	
