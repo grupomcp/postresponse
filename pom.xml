@@ -7,7 +7,7 @@
 	
 	<groupId>com.mcptecnologia</groupId>
 	<artifactId>postresponse</artifactId>
-	<version>0.5.1</version>
+	<version>0.5.4</version>
 	
 	<licenses>
 		<license>
@@ -30,7 +30,7 @@
 		<url>git@github.com:grupomcp/postresponse.git</url>
 		<developerConnection>scm:git:git@github.com:grupomcp/postresponse.git</developerConnection>
 	</scm>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
