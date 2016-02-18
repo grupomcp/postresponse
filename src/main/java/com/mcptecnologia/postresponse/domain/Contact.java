@@ -53,9 +53,12 @@ public class Contact {
 		return dayOfCycle;
 	}
 	
+	public void setDayOfCycle(Integer dayOfCycle) {
+		this.dayOfCycle = dayOfCycle;
+	}
+	
 	@Override
 	public String toString() {
 		return getName() + " - " + getEmail();
 	}
-	
 }

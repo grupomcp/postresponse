@@ -130,4 +130,21 @@ public class GetResponse {
 		return contacts;
 	}
 	
+	public List<Contact>findAllContacts(Integer page){
+		List<Contact> contacts = new ArrayList<Contact>();
+		if(enabledPostresponse){
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-Auth-Token", "api-key " + ResourceBundle.getBundle("config").getString("getresponse.key"));
+			headers.set("Content-Type", "application/json");
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			HttpEntity<String> retornoHttp = template.exchange(apiURL + "contacts?page=" + page, HttpMethod.GET, entity, String.class);
+			String retorno = retornoHttp.getBody();
+			logger.debug(retorno);
+			contacts = gson.fromJson(retorno, new TypeToken<List<Contact>>(){}.getType());
+		}else{
+			logger.info("POSTRESPONSE IS DISABLED");
+		}
+		return contacts;
+	}
+	
 }
