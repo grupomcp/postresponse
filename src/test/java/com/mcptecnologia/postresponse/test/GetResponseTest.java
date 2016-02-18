@@ -13,7 +13,8 @@ import com.mcptecnologia.postresponse.domain.Custom;
 import com.mcptecnologia.postresponse.service.GetResponse;
 
 public class GetResponseTest {
-	private Contact contact;
+	private Contact oldContact;
+	private Contact newContact;
 	private GetResponse getResponse;
 	private Logger logger = Logger.getLogger(GetResponseTest.class);
 	
@@ -21,18 +22,19 @@ public class GetResponseTest {
 	public void setUp(){
 		List<Custom>customs = new ArrayList<Custom>();
 		customs.add(new Custom("Mazf", new String[]{"X Corporation"}));
-		contact = new Contact("ouTrY8", "TestPV", "juridico@sinjus.org.br", customs, new Campaign("VYh2j"));
+		oldContact = new Contact("ouTrY8", "TestPV", "juridico@sinjus.org.br", customs, new Campaign("VYh2j"), 0);
+		newContact = new Contact("testefinal", "foxpv213@gmail.com", customs, new Campaign("VYh2j"), 0);
 		getResponse = new GetResponse();
 	}
 
 	@Test
 	public void shouldAddContact(){
-		getResponse.addContact(contact);
+		getResponse.addContact(newContact);
 	}
 	
 	@Test
 	public void shouldUpdateContact(){
-		getResponse.updateContact(contact);
+		getResponse.updateContact(oldContact);
 	}
 	
 	@Test

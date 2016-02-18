@@ -7,20 +7,22 @@ public class Contact {
 	private String contactId;
 	private String name;
 	private String email;
+	private Integer dayOfCycle;
 	private List<Custom>customFieldValues;
 	private Campaign campaign;
 	
-	public Contact(String contactId, String name, String email, List<Custom> customFieldValues, Campaign campaign) {
-		this(name, email, customFieldValues, campaign);
+	public Contact(String contactId, String name, String email, List<Custom> customFieldValues, Campaign campaign, Integer dayOfCycle) {
+		this(name, email, customFieldValues, campaign, dayOfCycle);
 		this.contactId = contactId;
 	}
 	
-	public Contact(String name, String email, List<Custom> customFieldValues, Campaign campaign) {
+	public Contact(String name, String email, List<Custom> customFieldValues, Campaign campaign, Integer dayOfCycle) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.customFieldValues = customFieldValues;
 		this.campaign = campaign;
+		this.dayOfCycle = dayOfCycle;
 	} 
 	
 	public String getContactId() {
@@ -47,9 +49,16 @@ public class Contact {
 		return campaign;
 	}
 	
+	public Integer getDayOfCycle() {
+		return dayOfCycle;
+	}
+	
+	public void setDayOfCycle(Integer dayOfCycle) {
+		this.dayOfCycle = dayOfCycle;
+	}
+	
 	@Override
 	public String toString() {
 		return getName() + " - " + getEmail();
 	}
-	
 }
