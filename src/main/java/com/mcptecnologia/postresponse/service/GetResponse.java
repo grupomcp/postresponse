@@ -78,9 +78,9 @@ public class GetResponse {
 			
 			if(contacts != null && contacts.size() > 0){
 				for(Contact contact: contacts){
-					this.removeContact(contact.getEmail());
+//					this.removeContact(contact.getEmail());
 					contact.getCampaign().setCampaignId(campaignId);
-					this.addContact(contact);
+					this.updateContact(contact);
 				}
 			}
 			logger.debug("contact has been moved to another campaign");
@@ -109,6 +109,23 @@ public class GetResponse {
 		}else{
 			logger.info("POSTRESPONSE IS DISABLED");
 		}
+	}
+	
+	public List<Contact>query(String query){
+		List<Contact> contacts = new ArrayList<Contact>();
+		if(enabledPostresponse){
+			HttpHeaders headers = new HttpHeaders();
+			headers.set("X-Auth-Token", "api-key " + ResourceBundle.getBundle("config").getString("getresponse.key"));
+			headers.set("Content-Type", "application/json");
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			HttpEntity<String> retornoHttp = template.exchange(apiURL + query, HttpMethod.GET, entity, String.class);
+			String retorno = retornoHttp.getBody();
+			logger.debug(retorno);
+			contacts = gson.fromJson(retorno, new TypeToken<List<Contact>>(){}.getType());
+		}else{
+			logger.info("POSTRESPONSE IS DISABLED");
+		}
+		return contacts;
 	}
 	
 	public List<Contact>findContactWith(String email){

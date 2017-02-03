@@ -23,7 +23,7 @@ public class GetResponseTest {
 		List<Custom>customs = new ArrayList<Custom>();
 		customs.add(new Custom("Mazf", new String[]{"X Corporation"}));
 		oldContact = new Contact("ouTrY8", "TestPV", "juridico@sinjus.org.br", customs, new Campaign("VYh2j"), 0);
-		newContact = new Contact("testefinal", "foxpv213@gmail.com", customs, new Campaign("VYh2j"), 0);
+		newContact = new Contact("testefinal", "atendimento@castorweb.com.br", customs, new Campaign("paOMC"), 0);
 		getResponse = new GetResponse();
 	}
 
@@ -34,12 +34,18 @@ public class GetResponseTest {
 	
 	@Test
 	public void shouldUpdateContact(){
-		getResponse.updateContact(oldContact);
+		newContact.setContactId("LzxWni");
+		getResponse.updateContact(newContact);
 	}
 	
 	@Test
 	public void shouldRemoveContact(){
-		getResponse.removeContact("juridico@sinjus.org.br");
+		getResponse.removeContact("foxpv213@gmail.com");
+	}
+	
+	@Test
+	public void shouldMoveCampaign(){
+		getResponse.moveContactToNewCampaign(newContact.getEmail(), "p8wVM");
 	}
 	
 	@Test

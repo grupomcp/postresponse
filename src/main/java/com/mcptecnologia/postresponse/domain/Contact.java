@@ -25,6 +25,10 @@ public class Contact {
 		this.dayOfCycle = dayOfCycle;
 	} 
 	
+	public void setContactId(String contactId) {
+		this.contactId = contactId;
+	}
+	
 	public String getContactId() {
 		return contactId;
 	}
@@ -60,5 +64,9 @@ public class Contact {
 	@Override
 	public String toString() {
 		return getName() + " - " + getEmail();
+	}
+	
+	public void setCampaign(Campaign campaign) {
+		this.campaign = campaign;
 	}
 }
