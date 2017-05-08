@@ -29,32 +29,32 @@ public class GetResponseTest {
 
 	@Test
 	public void shouldAddContact(){
-		getResponse.addContact(newContact);
+//		getResponse.addContact(newContact);
 	}
 	
-	@Test
-	public void shouldUpdateContact(){
-		newContact.setContactId("LzxWni");
-		getResponse.updateContact(newContact);
-	}
+//	@Test
+//	public void shouldUpdateContact(){
+//		newContact.setContactId("LzxWni");
+//		getResponse.updateContact(newContact);
+//	}
 	
-	@Test
-	public void shouldRemoveContact(){
-		getResponse.removeContact("foxpv213@gmail.com");
-	}
-	
-	@Test
-	public void shouldMoveCampaign(){
-		getResponse.moveContactToNewCampaign(newContact.getEmail(), "p8wVM");
-	}
-	
-	@Test
-	public void shouldFindaContact(){
-		List<Contact> contacts = getResponse.findContactWith("juridico@sinjus.org.br");
-		if(contacts != null){
-			for(Contact contact: contacts){
-				logger.info(contact);
-			}
-		}
-	}
+//	@Test
+//	public void shouldRemoveContact(){
+//		getResponse.removeContact("foxpv213@gmail.com");
+//	}
+//	
+//	@Test
+//	public void shouldMoveCampaign(){
+//		getResponse.moveContactToNewCampaign(newContact.getEmail(), "p8wVM");
+//	}
+//	
+//	@Test
+//	public void shouldFindaContact(){
+//		List<Contact> contacts = getResponse.findContactWith("juridico@sinjus.org.br");
+//		if(contacts != null){
+//			for(Contact contact: contacts){
+//				logger.info(contact);
+//			}
+//		}
+//	}
 }
