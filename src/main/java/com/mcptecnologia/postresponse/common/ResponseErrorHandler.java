@@ -25,6 +25,4 @@ public class ResponseErrorHandler implements org.springframework.web.client.Resp
                 || HttpStatus.Series.SERVER_ERROR.equals(series));
     }
 
-	
-
 }
